@@ -1,0 +1,46 @@
+	<%= form_with model:@product do |form|%>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<%= form.label :Name, class:"mb-2" %>
+					<%= form.text_field :name, class:"form-control-lg form-control"%>
+					<% @product.errors.full_messages_for(:name).each do |message| %>
+						<p class="text-danger"><%= message %></p>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="form-group">
+					<%= form.label :Price, class:"mb-2" %>
+					<%= form.text_field :price, class:"form-control form-control-lg" %>
+					<% @product.errors.full_messages_for(:price).each do |message| %>
+						<p class="text-danger"><%= message %></p>
+					<% end %>
+				</div>
+			</div>
+		</div><br><br>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-group">
+					<%= form.label :description, class:"mb-2" %>
+					<%= form.text_field :description, class:"form-control form-control-lg"%>
+					<% @product.errors.full_messages_for(:description).each do |message| %>
+						<p class="text-danger"><%= message %></p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="form-group">
+					<%= form.submit class:"btn btn-primary btn-lg mt-5" %>
+					<%= link_to "Back to Product", product_details_path, class:"btn btn-outline-primary btn-lg mt-5" %>
+				</div>
+			</div>
+		</div>
+
+	<% end %>
